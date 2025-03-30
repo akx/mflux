@@ -78,5 +78,5 @@ class LatentCreator:
         return encoded
 
     @staticmethod
-    def add_noise_by_interpolation(clean: mx.array, noise: mx.array, sigma: float) -> mx.array:
+    def add_noise_by_interpolation(clean: mx.array, noise: mx.array, sigma: mx.array) -> mx.array:
         return (1 - sigma) * clean + sigma * noise
