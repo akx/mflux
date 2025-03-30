@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+from pathlib import Path
+
 import mlx.core as mx
 
 from mflux.models.vae.vae import VAE
@@ -5,18 +8,12 @@ from mflux.post_processing.array_util import ArrayUtil
 from mflux.post_processing.image_util import ImageUtil
 
 
+@dataclass(frozen=True)
 class Img2Img:
-    def __init__(
-        self,
-        vae: VAE,
-        sigmas: mx.array,
-        init_time_step: int,
-        image_path: int,
-    ):
-        self.vae = vae
-        self.sigmas = sigmas
-        self.init_time_step = init_time_step
-        self.image_path = image_path
+    vae: VAE
+    sigmas: mx.array
+    init_time_step: int
+    image_path: Path | None
 
 
 class LatentCreator:

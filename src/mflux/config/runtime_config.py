@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 
 import mlx.core as mx
 import numpy as np
@@ -48,7 +49,7 @@ class RuntimeConfig:
         return self.model_config.num_train_steps
 
     @property
-    def image_path(self) -> str:
+    def image_path(self) -> Path | None:
         return self.config.image_path
 
     @property
