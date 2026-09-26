@@ -49,6 +49,10 @@ dependencies = [
     # Already present through huggingface-hub; declared so mflux-capabilities --format yaml
     # does not depend on a transitive dependency staying where it is.
     "pyyaml>=6.0,<7.0",
+
+    # Security floor for anyio, which is used transitively by httpx through huggingface-hub;
+    # mflux does not import it directly
+    "anyio>=4.14.2,<5.0"
 ]
 classifiers = [
     "Intended Audience :: Developers",
@@ -111,6 +115,7 @@ mflux-generate-ernie-image = "mflux.models.ernie_image.cli.ernie_image_generate:
 mflux-generate-ideogram4 = "mflux.models.ideogram4.cli.ideogram4_generate:main"
 mflux-generate-krea2 = "mflux.models.krea2.cli.krea2_generate:main"
 mflux-generate-lens = "mflux.models.lens.cli.lens_generate:main"
+mflux-generate-ming = "mflux.models.ming_image.cli.ming_image_generate:main"
 mflux-refine-fibo = "mflux.models.fibo_vlm.cli.fibo_refine:main"
 mflux-inspire-fibo = "mflux.models.fibo_vlm.cli.fibo_inspire:main"
 mflux-concept = "mflux.models.flux.cli.flux_concept:main"
